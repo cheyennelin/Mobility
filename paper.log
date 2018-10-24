@@ -1,41 +1,40 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.10)  18 OCT 2018 11:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.4)  24 OCT 2018 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./paper.tex
+**paper.tex
 (./paper.tex
-LaTeX2e <2016/03/31> patch level 3
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+LaTeX2e <2018-04-01> patch level 5
 (./llncs.cls
 Document Class: llncs 2018/03/10 v2.20 
  LaTeX document class for Lecture Notes in Computer Science
-(f:/texlive/2016/texmf-dist/tex/latex/base/article.cls
+(c:/texlive/2018/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(f:/texlive/2016/texmf-dist/tex/latex/base/size10.clo
+(c:/texlive/2018/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
-\c@part=\count79
-\c@section=\count80
-\c@subsection=\count81
-\c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(f:/texlive/2016/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
-\c@tracingmulticols=\count87
+(c:/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2018/04/20 v1.8s multicolumn formatting (FMi)
+\c@tracingmulticols=\count88
 \mult@box=\box26
 \multicol@leftmargin=\dimen103
-\c@unbalance=\count88
-\c@collectmore=\count89
-\doublecol@number=\count90
-\multicoltolerance=\count91
-\multicolpretolerance=\count92
+\c@unbalance=\count89
+\c@collectmore=\count90
+\doublecol@number=\count91
+\multicoltolerance=\count92
+\multicolpretolerance=\count93
 \full@width=\dimen104
 \page@free=\dimen105
 \premulticols=\dimen106
@@ -66,20 +65,25 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \@tempa=\box47
 \@tempa=\box48
 \@tempa=\box49
-\c@columnbadness=\count93
-\c@finalcolumnbadness=\count94
+\c@columnbadness=\count94
+\c@finalcolumnbadness=\count95
 \last@try=\dimen109
 \multicolovershoot=\dimen110
 \multicolundershoot=\dimen111
 \mult@nat@firstbox=\box50
 \colbreak@box=\box51
-\mc@col@check@num=\count95
+\mc@col@check@num=\count96
 )
-(f:/texlive/2016/texmf-dist/tex/latex/oberdiek/aliascnt.sty
+(c:/texlive/2018/texmf-dist/tex/latex/oberdiek/aliascnt.sty
 Package: aliascnt 2016/05/16 v1.4 Alias counters (HO)
 
-(f:/texlive/2016/texmf-dist/tex/latex/carlisle/remreset.sty))
-\c@chapter=\count96
+(c:/texlive/2018/texmf-dist/tex/latex/carlisle/remreset.sty
+
+Package remreset Warning: The remreset package is obsolete:
+(remreset)                \@removefomresset is defined.
+
+))
+\c@chapter=\count97
 LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 362.
 LaTeX Font Info:    Redeclaring math symbol \Delta on input line 363.
 LaTeX Font Info:    Redeclaring math symbol \Theta on input line 364.
@@ -101,11 +105,11 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \tocparanum=\dimen119
 \tocparatotal=\dimen120
 \tocsubparanum=\dimen121
-\@tempcntc=\count97
+\@tempcntc=\count98
 \fnindent=\dimen122
-\c@@inst=\count98
-\c@@auth=\count99
-\c@auco=\count100
+\c@@inst=\count99
+\c@@auth=\count100
+\c@auco=\count101
 \instindent=\dimen123
 \authrun=\box52
 \authorrunning=\toks14
@@ -113,22 +117,45 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \titrun=\box53
 \titlerunning=\toks16
 \toctitle=\toks17
-\c@theorem=\count101
-\c@case=\count102
-\c@conjecture=\count103
-\c@corollary=\count104
-\c@definition=\count105
-\c@example=\count106
-\c@exercise=\count107
-\c@lemma=\count108
-\c@note=\count109
-\c@problem=\count110
-\c@property=\count111
-\c@proposition=\count112
-\c@question=\count113
-\c@solution=\count114
-\c@remark=\count115
+\c@theorem=\count102
+\c@case=\count103
+\c@conjecture=\count104
+\c@corollary=\count105
+\c@definition=\count106
+\c@example=\count107
+\c@exercise=\count108
+\c@lemma=\count109
+\c@note=\count110
+\c@problem=\count111
+\c@property=\count112
+\c@proposition=\count113
+\c@question=\count114
+\c@solution=\count115
+\c@remark=\count116
 \headlineindent=\dimen124
+) (c:/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(c:/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(c:/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(c:/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(c:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(c:/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen125
+\Gin@req@width=\dimen126
 ) (./paper.aux)
 \openout1 = `paper.aux'.
 
@@ -144,41 +171,185 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
+
+(c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count117
+\scratchdimen=\dimen127
+\scratchbox=\box54
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count120
+\MPscratchDim=\dimen128
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
+\everyMPtoPDFconversion=\toks20
+) (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(c:/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(c:/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(c:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(c:/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 8.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 8.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 14.
+
+(c:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
+
+
+LaTeX Warning: Citation `Zheng2014UrbanConcepts' on page 1 undefined on input l
+ine 22.
+
+
+LaTeX Warning: Citation `Zheng2011taxicabs' on page 1 undefined on input line 2
+3.
+
+
+LaTeX Warning: Citation `Meng2017Traffic' on page 1 undefined on input line 23.
+
+
+
+LaTeX Warning: Citation `Garg2018Route' on page 1 undefined on input line 23.
+
+
+LaTeX Warning: Citation `Yuan2012FunctionRegion' on page 1 undefined on input l
+ine 26.
+
+
+LaTeX Warning: Citation `Yuan2015FunctionRegion' on page 1 undefined on input l
+ine 26.
+
+
+LaTeX Warning: Citation `Yuan2018FunctionRegion' on page 1 undefined on input l
+ine 26.
+
+
+LaTeX Warning: Citation `Resnick1994UserBased' on page 1 undefined on input lin
+e 31.
+
+
+LaTeX Warning: Citation `Sarwar2001ItemBased' on page 1 undefined on input line
+ 31.
+
+
+Overfull \hbox (7.34932pt too wide) in paragraph at lines 31--32
+\OT1/cmr/m/n/10 The ap-proaches to ex-pla-na-tion rec-om-men-da-tion sys-tem wa
+s de-vel-op-ing re-cently.At
+ []
+
+
+LaTeX Warning: Citation `Pazzani2007ContentBased' on page 1 undefined on input 
+line 34.
+
+
+LaTeX Warning: Citation `Herlocker2000Explanation' on page 1 undefined on input
+ line 43.
+
+
+LaTeX Warning: Citation `Ferwerda2012ContentCorrelate' on page 1 undefined on i
+nput line 43.
 
 [1
 
-{f:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Missing character: There is no ï in font cmr9!
-Missing character: There is no ¿ in font cmr9!
-Missing character: There is no ½ in font cmr9!
-Missing character: There is no ï in font cmr9!
-Missing character: There is no ¿ in font cmr9!
-Missing character: There is no ½ in font cmr9!
-Missing character: There is no ï in font cmr9!
-Missing character: There is no ¿ in font cmr9!
-Missing character: There is no ½ in font cmr9!
- [3]
-(./paper.aux) ) 
+{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<Structure.png, id=12, 1403.2425pt x 583.17876pt>
+File: Structure.png Graphic file (type png)
+<use Structure.png>
+Package pdftex.def Info: Structure.png  used on input line 52.
+(pdftex.def)             Requested size: 350.80977pt x 145.79433pt.
+
+Overfull \hbox (3.68623pt too wide) in paragraph at lines 52--53
+ [][] 
+ []
+
+[2 <./Structure.png>]
+
+LaTeX Warning: Citation `Zheng2014UrbanConcepts' on page 3 undefined on input l
+ine 103.
+
+
+LaTeX Warning: Citation `milan15' on page 3 undefined on input line 123.
+
+[3] [4] [5] (./paper.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 659 strings out of 493013
- 7500 string characters out of 6136992
- 69096 words of memory out of 5000000
- 4269 multiletter control sequences out of 15000+600000
- 5457 words of font info for 20 fonts, out of 8000000 for 9000
+ 1887 strings out of 492642
+ 26022 string characters out of 6133163
+ 98620 words of memory out of 5000000
+ 5770 multiletter control sequences out of 15000+600000
+ 6020 words of font info for 22 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,5n,21p,286b,234s stack positions out of 5000i,500n,10000p,200000b,80000s
-<f:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
-0.pfb><f:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><f:
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><f:/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on paper.pdf (3 pages, 76639 bytes).
+ 41i,6n,25p,716b,286s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2018/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy9.pfb>
+Output written on paper.pdf (5 pages, 239697 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 47 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
