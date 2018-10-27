@@ -19,25 +19,20 @@ The abstract should briefly summarize the contents of the paper in
 \section{Introduction}
 
 \subsection{motivation}
-Urban computing is defined by Zheng et al. ~\cite{Zheng2014UrbanConcepts} as an concept where many factors ,such as sensors,prople,vehicles and so on, consist of a dynamic urban system.The aims of urban computing include improve the life level of residents,optimizing urban planning, decreasing traffic jams, reducing various pollution and so on.
-With the improvement of living life of urban residents,GPS-embedded taxi begin to play an important part of urban computing.And the data of taxi mobility provide us an valuable way to compute urban system.For example,Zheng et al. ~\cite{Zheng2011taxicabs} detect the flaws in the existing urban planning of a city using the GPS trajectories of taxis traveling in the urban areas. Meng et al.\cite{Meng2017Traffic} propose a framework to infer the city-wide traffic volume information with loop detectors and taxi trajectories.Garg et al.\cite{Garg2018Route}minimizing distance through Monte Carlo tree search to decrease the rate of empty carrying and improve taxi drivers’ profits.
+Urban computing~\cite{Zheng2014UrbanConcepts} is defined as a concept where many factors ,such as sensors,prople,vehicles and so on, consist of a dynamic urban system. %?
+The aims of urban computing include improving the living quality of residents, optimizing urban planning, decreasing traffic jams, reducing various pollution and so on.
+With the improvement of living life of urban residents, GPS-embedded taxi begin to play an important part of urban computing. 
+And the data of taxi mobility provide us an valuable way to compute urban system.For example,Zheng et al. ~\cite{Zheng2011taxicabs} detect the flaws in the existing urban planning of a city using the GPS trajectories of taxis traveling in the urban areas. Meng et al.\cite{Meng2017Traffic} propose a framework to infer the city-wide traffic volume information with loop detectors and taxi trajectories. Garg et al.\cite{Garg2018Route}minimizing distance through Monte Carlo tree search to decrease the rate of empty carrying and improve taxi drivers’ profits.
 As you can see, Urban computing is closely linked with urban life.
 
-Discovering regions of different function is a step towards urban computing.In this direction,Yuan et al.~\cite{Yuan2012FunctionRegion,Yuan2015FunctionRegion,Yuan2018FunctionRegion} do well in discovering regions of different functions %3 references.
+Discovering regions of different function is a step towards urban computing.In this direction, Yuan et al.~\cite{Yuan2012FunctionRegion,Yuan2015FunctionRegion,Yuan2018FunctionRegion} do well in discovering regions of different functions %3 references.
 %~\cite{Yuan2012FunctionRegion}~\cite{Yuan2015FunctionRegion}:latent activity trajectories~\cite{Yuan2018FunctionRegion}
+% reference
+without explanation
 
-\subsection{explain power}
-%Previous model
-The approaches to explanation recommendation system was developing recently.At the early time,the fundamental methods of personal recommendation is recommendation systems with user-based and item-based. Resnick et al.\cite{Resnick1994UserBased} found user-based collaboration filtering recommendation system.The explanation is the similar neighbors whose interests and rates tend to be consistent with target user.Analogously,Sarwar et al. \cite{Sarwar2001ItemBased} proposed the recommendation with item-based could find the suitable items which has similar features with purchased items.
+%+figure 
 
-%model complex, deep model
-Variants of these basic model constitute the majority of explanation recommendation systems.e.g.,Pazzani et al.\cite{Pazzani2007ContentBased}
-As time going
-
-
-%data heterogenous 
-%explainability -> disadvantage 
-
+syst
 %Explaining the result is of crucial importance
 We can see that early recommendation systems tend to base on intuition and full with common sense,which improve users' satisfaction easily. Now the explanation recommendation systems is developing with more accuracy , which generate more satisfying results.Nevertheless ,the complexity of models is increasing at the meantime,which covers the intuition of whole structure and weakens the persuasiveness of models.So the explanation is playing an important part in recommendation systems.%~\cite{{Zhang2018SIGIR}}
 Majority of users trust and choice satisfaction were highly correlated with the reliability of the explanations for recommendations.Herlocker et al.~\cite{Herlocker2000Explanation}  do an investigation which shows that explanation facilities can improve the acceptance of recommendation systems.The following experiments,e.g.,by Ferwerda et al.~\cite{Ferwerda2012ContentCorrelate} has proven the conclusion.We aim to propose models to explain the destination why we recommend it more persuasively
@@ -45,6 +40,8 @@ Majority of users trust and choice satisfaction were highly correlated with the 
 
 %explain implementation, we need to incorporate activity and online sentiment
 Our goal is to proposed a model to predict taxi destination and provide persuasive explanation for it.
+input: mobility data
+output: identify urban region, label temporal function of region, explain function aspect-opinion-sentiment
 %Furthermore, provide xxx explaination, activity , focus on aspects
 
 \begin{figure}
@@ -63,7 +60,7 @@ function = distribution of activitys and opinions
 %challenge
 
 previous research
-
+aspect urban related
 
 
 %opinion
@@ -71,7 +68,8 @@ previous research
 
 
 %second challenge: time bins
-
+urban region : function temporal 
+mobility data temporal information not fully utilized 
 
 
 \subsection{contribution}
@@ -84,7 +82,7 @@ Our paper has an outstanding result in following several aspect:
 
 
 
-\subsection{paper structure}
+
 The remainder of the paper is organized as follows. 
 We give an overview for related work in Section 2.
 In Section 3, we introduce our novel models as well as proving their logic.
