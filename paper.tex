@@ -1,6 +1,8 @@
 \documentclass[runningheads]{llncs}
 \usepackage{graphicx}
 \usepackage{subfigure}
+\usepackage{tikz}
+\usetikzlibrary{fit,positioning}
 
 \begin{document}
 \title{Explain urban regional function}
@@ -33,50 +35,40 @@ Due to the availability of large-scale mobility data, an increasing amount of da
 Most of them use clustering methods on commuting data, such as origin-destination pairs of labour market data ~\cite{Karlsson2006FunctionalRegionSummary} while others use remote-sensor image data~\cite{Vatsavai2011Remote}.
 Later work focuses on city-level functional region identification, where a functional region is a region in a city which supports different needs of people’s urban lives~\cite{Yuan2012FunctionRegion,Yuan2015FunctionRegion}.
 To obtain accurate identification, recent research tends to use complex models for various form of data,
-e.g. DRoF based on Dirichlet Multinomial
-Regression with latent factors applying in mobility data of taxicabs and points of interests (POIs)~\cite{Yuan2012FunctionRegion,Yuan2015FunctionRegion}, clustering algorithms based on the 'modularity function'~\cite{Newman2004ModularityFunction} applying in telecommunication~\cite{Ratti2010Telecom},unsupervised semantic labeling framework based on the Latent Dirichlet Allocation applying in remote-sensor data~\cite{Vatsavai2010Remote}. %complex model
+e.g. latent factor models based on Dirichlet Multinomial Regression are applied on mobility data of taxicabs and points of interests (POIs)~\cite{Yuan2012FunctionRegion,Yuan2015FunctionRegion}, clustering algorithm based on the 'modularity function' is applied on telecommunication~\cite{Newman2004ModularityFunction,Ratti2010Telecom},unsupervised semantic labeling framework based on the Latent Dirichlet Allocation is applied on remote-sensor data~\cite{Vatsavai2010Remote}. %complex model
 
 %explainability
-Explanation is regarded as a reason or justification given for an action or a plan.
-Majority of trustiness and satisfaction were highly correlated with the reliability of the explanations~\cite{Herlocker2000Explanation}.
-The complex nature of these models covers the intuition explanation of the system,which weakens the interpretability to end users and system designers.%The lack of explanation of the identification xxx
-To fit with the growth of complex models,there is an emerging trend in studying explainable AI~\cite{Preece2018ExplainAI}.
-For example,graph and text with templates explanation is provided in navigation~\cite{Korpan2017navigation} and cognitive cities~\cite{Jose2018cognitive} to improve trustiness of people.%explainable AI reference, data mining
-%Interpretable fuzzy systems have already successfully contributed to build explainable AI systems for cognitive cities.
-%the report combines both NL texts and graphs with the aim of maximizing interpretability.
-To the best of our knowledge, none of the previous urban functional identification provide explanation for the results of region segmentation and functional labels automatically.
-To make the result more convinced,we aim to propose models to explain the identification of urban functional explanation. 
-
+A severe drawback of existing research is the lack of explanation for the identifications of functional regions. Though existing applications~\cite{Yuan2015FunctionRegion} have achieved high identification accuracy,the complex nature of these models weakens the interpretability to end users and system designers.%The lack of explanation of the identification xxx
+There is an emerging trend in studying explainable AI~\cite{Preece2018ExplainAI}.
+In geographical systems, explainable system is still in its initial stage~\cite{Korpan2017navigation,Jose2018cognitive}.
+To the best of our knowledge, none of the previous urban functional identification provide explanation for the results of region segmentation and functional labels.
 
 %explain implementation, we need to incorporate activity and online sentiment
-In this paper,our goal is to proposed a model to explanation for our functional region clustering results.
-We have two data sets. One is mobility data 3 million including pick-up and drop-off coordinates and time,which provide detailed moving pattern for the dynamic urban system to discovering regions with different functions.
+In this paper,to make the results more convinced, we build a system that provides explanations for our functional region clustering results.
+We build our system upon two data sets. One is mobility data 3 million including pick-up and drop-off coordinates and time,which provide detailed moving pattern for the dynamic urban system to discovering regions with different functions.
 And the other is comment data with shop address that reveal sentiment tendencies of the shop.We could exact labels as the form of 'character-opinion-sentiment' from and pick labels with strongest sentiment as our explanation.
 We combined the urban computing using mobility data with sentiment analysis using geo-content.
-Fig.\ref{explanation-example} reveal an example of our output of model.
-%Furthermore, provide xxx explanation, activity , focus on aspects
+As shown in Fig.\ref{explanation-example}, our system not only segments regions of a city based on the functionals, but also delivers explanations of the  functionals. To be specific, we first associate each functional with an urban activity, next we extract the most representative urban feature for each activity, finally we learn/highlight/assign the sentiment towards typical urban features for each functional region.  For example,Fig.\ref{explanation-example} given a map of city A, reg region I corresponds to residential region while blue region II corresponds to commercial region. We found that people are most interested on traffic for a commercial region. And a residential region usually has sentiment positive on vanishing noise.
 
-%input
-%output
 \begin{figure}
 \centering
 \subfigure[An example of our identification result]{
 \label{real-map} %% label for first subfigure
-\includegraphics[width=2in]{example-net.png}}
-\hspace{0.1in}
+\includegraphics[width=2.25in]{example-net.png}}
 \subfigure[moving patterns]{
 \label{patterns} %% label for second subfigure
 \includegraphics[width=2in]{example-line.png}}
-\subfigure[POIs in region I]{
+\subfigure[Sentiment labels with their probability]{
 \label{POI} %% label for second subfigure
 \includegraphics[width=2in]{example-POIs.png}}
-\subfigure[Sentiment labels with their probability]{
+\subfigure[POIs in different functional region]{
 \label{sentiment} %% label for second subfigure
 \includegraphics[width=2in]{example-sentiment.png}}
 \caption{The explanation provided for functional region identification.
-Region I in Fig.\ref{real-map} is labeled as commercial region.
-Fig.\ref{patterns} revealed the mobility patterns in the region,which weekends and evenings has more patterns than work time.
-Fig.\ref{POI} shows that there is more shops than other POIs within this region.And from fig.\ref{sentiment} we find that people have a positive sentiment in traffic(label 18) and a negative sentiment in noise(label 25).}
+Region I in Fig.\ref{real-map} is labeled as residential region while II is commercial region.
+Fig.\ref{patterns} revealed differences of the mobility patterns between residential region and commercial region,workdays and weekends.
+Fig.\ref{POI} shows the distribution of POIs within the two regions,e.g. there is more shops in commercial region.
+And from fig.\ref{sentiment} we find that people have a more interest in a positive sentiment in traffic for commercial and pay more attention to noise for residential region.}
 \label{explanation-example} %% label for entire figure
 \end{figure}
 
@@ -243,7 +235,7 @@ The models have improve some extra recognition accuracy ,which have an extra con
 \bibitem{González2008Track}González M C, Hidalgo C A. Understanding individual human mobility patterns[J]. Nature, 2008, 453(7196):779-782.
     %追踪100000名手机用户6个月，人体轨迹表现出高度的时间和空间规律。说是human mobility, 但是数据集是长期轨迹包含很多点
 \bibitem{Gallegos16happier}Gallegos L, Huang A, Huang A, et al. Geography of Emotion: Where in a City are People Happier?[C]// International Conference Companion on World Wide Web. International World Wide Web Conferences Steering Committee, 2016:569-574.
-    %将其他人的统计方法用于划分区域的签到数据集中，比较得出结论：①签到数据越多的地方积极性越高，消极性越低。②发现在签到数据多的地方签到的用户，活动范围都比较大。可以理解为这个地方比较吸引人，人们愿意走更远的路去这里玩。③结合人口普查的结果，发现签到数据多的地方所居住的居民年龄更大、非西班牙裔人口更多、受教育程度更高
+    %将其他人的统计方法用于划分区域的签到数据集中，比较得出结论：① 签到数据越多的地方积极性越高，消极性越低。②发现在签到数据多的地方签到的用户，活动范围都比较大。可以理解为这个地方比较吸引人，人们愿意走更远的路去这里玩。③结合人口普查的结果，发现签到数据多的地方所居住的居民年龄更大、非西班牙裔人口更多、受教育程度更高
 \bibitem{Zhao2016POI}Zhao S, King I, Lyu M R. A Survey of Point-of-interest Recommendation in Location-based Social Networks[J]. 2016.
     %对截止16年最新的50篇与LSBN和POI相关的顶会论文做了一个总结，不知道能不能用上
 \bibitem{Zhang2018SIGIR} Zhang, Y.; Zhang, Y.; Zhang, M. SIGIR 2018 Workshop on ExplainAble Recommendation and Search (EARS 2018) //The 41st International ACM SIGIR Conference on Research \& 38; Development in Information Retrieval,ACM,2018, 1411-1413
