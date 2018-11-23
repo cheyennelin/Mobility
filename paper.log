@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.10)  23 NOV 2018 10:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.10.10)  23 NOV 2018 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -662,69 +662,91 @@ LaTeX Warning: Reference `POI' on page 2 undefined on input line 82.
 
 LaTeX Warning: Reference `POI' on page 2 undefined on input line 82.
 
+[2] [3 <./example-net.png> <./example-line.png> <./example-sentiment.png>]
 
-Underfull \vbox (badness 5726) has occurred while \output is active []
+LaTeX Warning: Citation `' on page 4 undefined on input line 130.
 
- [2]
-[3 <./example-net.png> <./example-line.png> <./example-sentiment.png>] [4]
-<overview.png, id=34, 1089.06876pt x 523.9575pt>
+
+LaTeX Warning: Citation `Farmer2009Overvie' on page 4 undefined on input line 1
+30.
+
+
+LaTeX Warning: Citation ` Korpan2017navigation' on page 4 undefined on input li
+ne 130.
+
+
+Overfull \hbox (0.8771pt too wide) in paragraph at lines 137--140
+[]\OT1/cmr/m/n/10 Existing ur-ban com-put-ing sys-tems ex-ten-sively rely on co
+m-plex ma-chine learn-
+ []
+
+[4] <overview.png, id=34, 1089.06876pt x 523.9575pt>
 File: overview.png Graphic file (type png)
  <use overview.png>
-Package pdftex.def Info: overview.png used on input line 203.
+Package pdftex.def Info: overview.png used on input line 158.
 (pdftex.def)             Requested size: 326.72314pt x 157.18846pt.
- [5 <./overview.png>] <DMR.png, id=39, 599.23875pt x 167.62625pt>
-File: DMR.png Graphic file (type png)
- <use DMR.png>
-Package pdftex.def Info: DMR.png used on input line 260.
-(pdftex.def)             Requested size: 239.69125pt x 67.0493pt.
- [6 <./DMR.png>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5] [6 <./overview.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 288.
+(Font)              <9> on input line 230.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 288.
- [7] [8]
-Overfull \hbox (8.40742pt too wide) in paragraph at lines 411--428
+(Font)              <6> on input line 230.
+ [7]
+Overfull \hbox (8.40742pt too wide) in paragraph at lines 338--355
 [][] 
  []
 
-[9] <chengdu_1.png, id=61, 1205.50375pt x 877.2775pt>
+[8] <chengdu_1.png, id=55, 1205.50375pt x 877.2775pt>
 File: chengdu_1.png Graphic file (type png)
  <use chengdu_1.png>
-Package pdftex.def Info: chengdu_1.png used on input line 444.
+Package pdftex.def Info: chengdu_1.png used on input line 371.
 (pdftex.def)             Requested size: 108.405pt x 78.88463pt.
 
-<chengdu_2.png, id=62, 1206.5075pt x 878.28125pt>
+<chengdu_2.png, id=56, 1206.5075pt x 878.28125pt>
 File: chengdu_2.png Graphic file (type png)
  <use chengdu_2.png>
-Package pdftex.def Info: chengdu_2.png used on input line 447.
+Package pdftex.def Info: chengdu_2.png used on input line 374.
 (pdftex.def)             Requested size: 108.405pt x 78.90788pt.
 
-<chengdu_3.png, id=63, 1206.5075pt x 876.27374pt>
+<chengdu_3.png, id=57, 1206.5075pt x 876.27374pt>
 File: chengdu_3.png Graphic file (type png)
  <use chengdu_3.png>
-Package pdftex.def Info: chengdu_3.png used on input line 450.
+Package pdftex.def Info: chengdu_3.png used on input line 377.
 (pdftex.def)             Requested size: 108.405pt x 78.72752pt.
 
-<FunctionalRegions_thinning.png, id=64, 736.7525pt x 598.235pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<FunctionalRegions_thinning.png, id=58, 736.7525pt x 598.235pt>
 File: FunctionalRegions_thinning.png Graphic file (type png)
 
 <use FunctionalRegions_thinning.png>
-Package pdftex.def Info: FunctionalRegions_thinning.png used on input line 462.
+Package pdftex.def Info: FunctionalRegions_thinning.png used on input line 389.
 
 (pdftex.def)             Requested size: 166.2212pt x 134.96219pt.
 
-<FunctionalRegions_DMR.png, id=65, 725.71124pt x 600.2425pt>
+<FunctionalRegions_DMR.png, id=59, 725.71124pt x 600.2425pt>
 File: FunctionalRegions_DMR.png Graphic file (type png)
 
 <use FunctionalRegions_DMR.png>
-Package pdftex.def Info: FunctionalRegions_DMR.png used on input line 465.
+Package pdftex.def Info: FunctionalRegions_DMR.png used on input line 392.
 (pdftex.def)             Requested size: 166.2212pt x 137.47585pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10 <./chengdu_1.png> <./chengdu_2.png> <./chengdu_3.png>] [11 <./FunctionalReg
-ions_thinning.png> <./FunctionalRegions_DMR.png>] [12] [13] [14] (./paper.aux)
+[9]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./chengdu_1.png> <./chengdu_2.png> <./chengdu_3.png> <./FunctionalRegions
+_thinning.png> <./FunctionalRegions_DMR.png>] [11] [12] [13] (./paper.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -733,13 +755,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13084 strings out of 493013
- 252100 string characters out of 6136992
- 301445 words of memory out of 5000000
- 16362 multiletter control sequences out of 15000+600000
+ 13086 strings out of 493013
+ 252160 string characters out of 6136992
+ 303478 words of memory out of 5000000
+ 16365 multiletter control sequences out of 15000+600000
  11622 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,54p,840b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,10n,54p,1225b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
 <f:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><f:/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><f:/texlive/2016
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><f:/texlive/2016/texmf-dis
@@ -756,10 +778,10 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb><f:/texlive/2016/texmf-dist/fonts/type1
 sfonts/cm/cmsy7.pfb><f:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy9.pfb><f:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 >
-Output written on paper.pdf (14 pages, 418714 bytes).
+Output written on paper.pdf (13 pages, 407671 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 137 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

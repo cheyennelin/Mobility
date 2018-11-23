@@ -7,7 +7,7 @@
 \usetikzlibrary{fit,positioning}
 
 \begin{document}
-\title{Explain urban regional function}
+\title{Explainable Functional Region Identification}
 \author{Submission}
 
 \maketitle
@@ -47,20 +47,20 @@ Furthermore, to obtain accurate identification, recent research tends to use com
 The complex nature of these models is an obstacle for people to capture the ``semantics'' of the clustering results. 
 
 %motivation
-There is a strong incentive to develop explainable FRI system, which \emph{explains} the identification of functional regions. 
-Explainable FRI is beneficial for both system designers and end users.
+There is a strong incentive to develop  \emph{Explainable Functional Region Identification} (EFRI) system, which \emph{explains} the identification of functional regions. 
+EFRI is beneficial for both system designers and end users.
 For system designers, explanations help them better diagnose the system and improve system performance. 
 For end users, explanations not only facilitate interpretation of the clustering results, but also incubate a wide range of applications, including traffic flow predictions, personalized trajectory recommendation, urban planning and so on. 
 
 %goal
 Though there is a growing interest in studying explainable AI~\cite{Preece2018ExplainAI}, in geographical systems, explainable system is still in its initial stage~\cite{Korpan2017navigation,Jose2018cognitive}.
-In this paper, we present a novel system for explainable FRI by integrating heterogeneous data sources. Our system provides post-hoc explanations, i.e. the explanations are not relevant to the FRI algorithm. Instead, for an arbitrary FRI algorithm, the system attempts to resolve the ``semantics" of the generated cluster labels by (1) associating the cluster labels to a set of human activities; (2) visualizing the desired urban features for each activity; and (3) listing the most important urban features in the region. 
+In this paper, we present a novel EFRI system by integrating heterogeneous data sources. Our system provides post-hoc explanations, i.e. the explanations are not relevant to the FRI algorithm. Instead, for an arbitrary FRI algorithm, the system attempts to resolve the ``semantics" of the generated cluster labels by (1) associating the cluster labels to a set of human activities; (2) visualizing the desired urban features for each activity; and (3) listing the most important urban features in the region. 
 
 %figure ??? real example or made-up example
 As shown in Fig.\ref{explanation-example}, the city has been partitioned into several functional regions. For a specific region $r_1$ with label $l$, the system delivers textual and visual descriptions. Firstly label $l$ is most likely to relate to a mixture of activities ``'' and ``'', because from the analysis of mobility data, these two activities bring in $\%$ of the traffic flow to region $r_1$. Secondly, under activity ``", two urban features ``'' and ``" are most popular, with highly positive sentiments collected from online reviews. Finally region $r_1$'s most representative urban features are exactly ``" and ``", thus the system explains why $r_1$ is labeled as $l$.  
 
 %highlight
-We highlight a key property of the proposed explainable FRI system: \textbf{the power to integrate heterogenous data sources to offer semantic explanations for mobility patterns}. On one hand, explanations essentially involve semantics, which are not available in pure mobility data (i.e. taxicab pick-ups and drop-offs). In our system, the semantics of labels are expressed through urban activities and urban features, both of which are extracted from textual data (i.e. online review data). On the other hand, the identification of functional region is based on mobility patterns. To generate reasonable explanations, our system blends in the semantics extracted from textual data and moving patterns discovered in mobility data. 
+We highlight a key property of the proposed EFRI system: \textbf{the power to integrate heterogenous data sources to offer semantic explanations for mobility patterns}. On one hand, explanations essentially involve semantics, which are not available in pure mobility data (i.e. taxicab pick-ups and drop-offs). In our system, the semantics of labels are expressed through urban activities and urban features, both of which are extracted from textual data (i.e. online review data). On the other hand, the identification of functional region is based on mobility patterns. To generate reasonable explanations, our system blends in the semantics extracted from textual data and moving patterns discovered in mobility data. 
 
 In building such a system, we face two challenges.
 
@@ -92,107 +92,62 @@ Again, the supervision is costly to obtain.
 
 %unsupervised
 To address the first challenge, we adopt an unsupervised approach to extract urban features from online review data.
-Furthermore, urban features are characterized with geographical attributes, existing product feature extraction methods such as~\cite{Lu2011Label} are not directly applicable.
-We implement a layered computation.
-We first adopt NLP techniques to select a candidate set of features.  
+Urban features are characterized with geographical attributes, existing product feature extraction methods such as~\cite{Lu2011Label} are not directly applicable.
+Therefore, we first adopt NLP techniques to select a candidate set of features.  
 Then we filter urban features which are most representative in geographical texts.
 
 %how to embed mobility data
 The second challenge arises from the integration of textual and mobility data.
 To fully explain the functional of a region, our goal is to simultaneously discover semantic associations (i.e. how the given region is associated to each urban activity and urban feature) and mobility patterns (i.e. how the current traffic flow of a given region is affected by previous traffic flow).
 This is not a trivial task.
-The mobility patterns can be highly diverse for each region and each timepoint.
-For example, people tend to gather in school region in the day, while in residence regions produces maximal traffic flow at night.
+The mobility patterns can be highly diverse for each region and time sensitive.
+For example, people tend to gather in school region in the day, while in residence regions produces they gather at night.
 Restraining a global form shared by all mobility patterns is problematic.
 
-To address the second challenge, we adopt a latent factor model to embed the semantic associations to predict traffic flows, i.e. the traffic flow of a region is aggregated over all activities, where each activity specific traffic flow is predicted by people's preferences on multiple urban features and the region's association with the same set of urban features.
-Furthermore, we incorporate a bias curve in the prediction formula to represent mobility patterns. 
-The bias curve is free shaped so that the forms of mobility patterns are not restrained
-
 %bias curve
+To address the second challenge, we adopt a layered regression model to embed the semantic associations to predict traffic flows, i.e. the traffic flow of a region is aggregated over all activities, where each activity specific traffic flow is predicted by people's preferences on multiple urban features and the region's association with the same set of urban features.
+Furthermore, we incorporate a bias curve in the prediction formula to represent mobility patterns. 
+The bias curve is free shaped so that the forms of mobility patterns are not restrained.
 
-\textbf{Contribution} of this work is three-fold:
-\begin{itemize}
-  \item To the best of our knowledge,we are the first to give explanation to urban functional region identification , which could improve the trustiness and satisfaction of users and urban system designers.
-  \item After identify different functions, We use the contents with sentiment to find the typical urban feature within a region and make explanation.
-  \item The explanation is given by latent factor model. We appplied matrix factorization to get the correlation coefficients between single region units and its features.
-\end{itemize}
-
+%contribution
+Contribution of this work is three-fold. (1) \textbf{An Unexplored Problem.} To the best of our knowledge, we are the first to study the problem of explainable functional region identification. (2) \textbf{A New Form of Explanations.} We propose a novel framework to deliver explanations. The proposed EFRI explains the functional of a region by demonstrating both the semantics of functional (through urban activities and urban features) and mobility patterns of the functional (time sensitive mobility patterns). Such informative explanations can greatly improve user experience and might shed some insights in other domains such as explainable recommendations. (3) \textbf{A Novel Model.} We present a unsupervised framework to extract urban activities and urban features from online review data. We then adopt a layered regression model to semanticaly associate regions to urban features. We also embed a free-form bias curve to represent mobility pattrerns in mobility data.   
 
 The remainder of the paper is organized as follows.
-We give an overview for related work in Section 2.
-In Section 3, we give an overview of our framework.
-Section 4 shows the process of functional region identification as well as urban feature extraction.
-And Section 5 introduces the post hoc explanation model.
-We test the framework on our datasets and presents the superior explanation result in Section 6
-Finally, we made a conclusion and looked forward to our future work in Section 7.
+We briefly overview related work in Section~\ref{sec:related}.
+The EFRI system is presented in Section~\ref{sec:extraction} and Section~\ref{sec:regression}. 
+In Section~\ref{sec:extraction}, we describe technical details to extract urban activities and urban features in online review data.
+In Section~\ref{sec:regression}, we give the intuition and inference of the layered regression model to generate explanations that cover both semantic associations and mobility patterns.
+We evaluate the EFRI system and analyze the experimental results in Section~\ref{sec:experiments}.
+Finally, we conclude this work in Section~\ref{sec:conclusions}.
 
-\section{Related Work}
-Our work is build upon taxicabs trajectory and comment text.
-With the data source, two lines of work are related to this paper: urban computing and online sentiment analysis .
+\section{Related Work}\label{sec:related}
+As our work makes use of taxicab pick-ups and drop-offs data and online review data, two lines of work are related: urban computing on mobility data and online review analysis .
 
 %related work section name, find another suitable name for mobility mining
-\subsection{Urban Computing}
+\subsection{Urban Computing on Mobility Data}
+%data source
+Urban computing~\cite{Zheng2014UrbanConcepts} tackles issues that cities face by analyzing human mobility data.
+Major sources of mobility data are check-ins data~\cite{Cheng2011Check-in,Gallegos16happier}, origin-destination pairs data~\cite{Ge2011TaxiBusiness,Meng2017Traffic}  and trajectory data~\cite{Ge2011TaxiBusiness,Garg2018Route,Wu2017Reachable,Wang2018Deep}.The simplest form among them are check-ins data, which is a set of points revealing users' current locations collected from location sharing services. Check-ins data are previously adopted for revealing demographic associations~\cite{Gallegos16happier} and POI recommendation~\cite{Cheng2011Check-in}. Origin-destination data consists of a set of pairwise location points, e.g. a pick-up point and a drop-off point of a taxi trajectory. Most functional region identification systems are based on origin-destination pairs~\cite{,Karlsson2006FunctionalRegionSummary}, e.g. from commute data~\cite{Farmer2009Overvie, Korpan2017navigation,Jose2018cognitive}, or from remote-sensor image data~\cite{Vatsavai2011Remote}. Trajectory data consists of a set of routes, where each route is a sequence of location points. Taxi driver trajectory~\cite{Ge2011TaxiBusiness,Garg2018Route} data is more suitable for traffic planning. 
 
-Urban computing~\cite{Zheng2014UrbanConcepts} tackles the major issues that cities face by analyzing human mobility collected from different sensors.
-Major sources of human mobility data are check-ins in POI~\cite{Gallegos16happier}, pick-up and drop-off behavior of taxicabs~\cite{Ge2011TaxiBusiness,Meng2017Traffic} in different locations and  trajectories.
+%functional region identification
+A major and ongoing thrust of research on urban computing concerns the identification of functional regions. In early work, a functional region was defined as a geographical region where the majority of local population recruit and are employed within the region \cite{Ball1980Definition}. Recent studies focus on city-level FRI, i.e. identification of regions in a city that support certain needs of urban lives ~\cite{Yuan2012FunctionRegion,Yuan2015FunctionRegion}. Traditional FRI systems are rule-based~\cite{Ball1980Definition}, i.e. a city's labor market statistics satisfying certain requirements is considered to be a functional region. Due to the availability of large-scale mobility data, an increasing amount of data-driven approaches~\cite{Farmer2009Overview} have been proposed.
+Most of them use clustering methods~\cite{Karlsson2006FunctionalRegionSummary}. To name a few, clustering algorithm based on the 'modularity function'~\cite{Newman2004ModularityFunction,Ratti2010Telecom}, spectral clustering~\cite{Vatsavai2011Remote}, Latent Dirichlet Allocation (LDA)~\cite{Vatsavai2010Remote} and Dirichlet Multinomial Regression (DMR)~\cite{Yuan2012FunctionRegion,Yuan2015FunctionRegion}.
 
-%extract the different among these data
-The simplest form of mobility data is \textbf{check-ins data}, which are collected from locating sharing services. Check-ins data usually includes a set of point revealing users' current location.
-Statistical association analysis is commonly conducted on check-ins. For example, radius of gyration is measured in~\cite{Cheng2011Check-in}, which is extended by combining with lexicon into demographics~\cite{Gallegos16happier}.
-A few recent work adopts model based approaches, e.g. context-aware tensor factorization that take account of contextual factors that influence consumers refueling decision~\cite{Zhang2015Fuel}.
+%drawbacks
+Existing urban computing systems extensively rely on complex machine learning algorithms hence they act as blank-boxes for end users.
+The lack of explanation weakens the persuasiveness and trustworthiness of the system for end-users.
+Our work is to make up for this drawback by providing intuitive explanations of the results for end-users and system designers
 
-The second form of mobility data is \textbf{origin-destination pairs}, i.e. a pick-up point and a drop-off point of a taxi trajectory.
-Clustering methods including Newman modularity cluster algorithm~\cite{Newman2004ModularityFunction} are applied in functional region identification~\cite{Ratti2010Telecom}.
-Recently, latent factor models are proposed to treat a region as document and infer functional-specific ~\cite{Yuan2012FunctionRegion}.%
-Latent activity is imported in topic model in~\cite{Yuan2015FunctionRegion} to define the specific functions of different regions.
-
-Alternatives for origin-destination pairs are \textbf{trajectory data}.
-Applications on trajectory data include recommendation, e.g. to recommend more suitable place to drivers~\cite{Ge2011TaxiBusiness,Garg2018Route} and traffic planning, e.g. to find reachable region within a given temporal period~\cite{Wu2017Reachable}, %find a fast route
-or to predict travel time~\cite{Wang2018Deep}.
-
-In early work, a functional region was defined as a geographical region where the majority of local population recruit and are employed within the region \cite{Ball1980Definition}.
-Due to the availability of large-scale mobility data, an increasing amount of data-driven approaches~\cite{Farmer2009Overview} have been proposed.
-Most of them use clustering methods on commuting data, such as origin-destination pairs of labour market data ~\cite{Karlsson2006FunctionalRegionSummary} while others use remote-sensor image data~\cite{Vatsavai2011Remote}.
-Later work focuses on city-level functional region identification,
-
-%tasks
-However, existing urban computing systems extensively rely on complex machine learning algorithms hence they act as blank-boxes for end users.
-The lack of explanation weakens the persuasiveness and trustworthiness of the system for users.
-Our work is to make up for this drawback by providing intuitive explanations of the results for users or system designers
-
-\subsection{Geographical Analysis of Online Sentiment}
+\subsection{Online Review Analysis}
+Online review data has been extensively studied in opinion mining~\cite{}. Given a set of product features, the user sentiments in each review are extracted either as binary sentiment polarity~\cite{} or as numerical sentimental strength~\cite{}. Opinion mining has been combined with recommender systems to generate explainable recommendations~\cite{}. Typically, a latent factor model~\cite{} is utilized to decompose user-item ratings to a latent feature space of user preferences and item attributes. Though there are fruitful research results in this domain, due to the lack of geographical analysis, these methods are not directly applicable to generate explanations for FRI.
 
 Recently, an emerging research interest is witnessed in exploring the geographical factors that affect online sentiment.
 Empirical studies have been conducted on large-scale human mobility data, such as check-in ~\cite{Gallegos16happier}and trajectory~\cite{Gonzlez2008Track},to find the geographical content analysis with sentiment.
 Associations are found between online sentiments and geographical factors, e.g happy regions are more likely to connect with each other~\cite{Alshamsi15milan},a high check-in density region usually presents a more positive mode~\cite{Gallegos16happier}, the whole process and development of a organized movement could be tracked on the social media~\cite{Alvarez2015Movement} and so on.
 
-%and emotion
-%complete survey
 However, most existing work of this line employ simple statistical analysis to uncover the associations.
 Such a coarse-grained analysis is distorted by latent variables, such as activity of the region.
 Our work is the first to incorporate activity to obtain a fine-grained analysis.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{System Overview}
 The section make an overview introduction for our post hoc framework to explain the functional region identification.
@@ -247,20 +202,7 @@ These urban feature is the explanation for the functional region identification.
 
 
 
-\section{Urban Feature}
-\subsection{Functional Region Identification}
-A city was segmented into single region units, which is regarded as documents with various themes in topic modeling.
-DMR~\cite{Mimno2012DMR} was applied in functional region identification as explained in~\cite{Yuan2012FunctionRegion}.
-DMR, whose structure is illustrated in Figure~\ref{DMR_ori}, is a topic clustering model based on Latent Dirichlet Allocation(LDA).
-It input some metadata, e.g. authors and publishers, in addtion to basic LDA, which make the topic modeling more accurate.
-As describe in~\cite{Yuan2012FunctionRegion},we regard flow increment calculated in regions as vocabulary in documents, which is marked as $m_{r,n}$ in Figure~\ref{DMR_ori}.
-And POI located in different region units are correlate to the matadata of document, which is marked as $x_r$ in Figure~\ref{DMR_ori}.
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.4]{DMR.png}
-  \caption{The structure of DMR}
-  \label{DMR_ori}
-\end{figure}
+\section{Urban Feature}\label{sec:extraction}
 
 \subsection{Urban Feature Extraction}
 To get proper urban features for explaining different functions, we thought that urban features should be nouns with high frequency and low information entropy.
@@ -298,22 +240,7 @@ information entropy &  &  &  & \\
 \subsection{Urban Feature Matrix}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Explanation Model}
+\section{Explanation Model}\label{sec:regression}
 In this section,we describe our post hoc framework for explanation in detail.
 
 \subsection{Latent Factor Model}
@@ -401,7 +328,7 @@ The approach to get it is stochastic gradient descent(SGD) algorithm due to its 
 
 
 
-\section{Experiments}
+\section{Experiments}\label{sec:experiments}
 \subsection{Data Set}
 The data set for our experiments including both mobility data and content data.
 The mobility data including the pick-up and drop-off timestamps and coordinates in November of the year 2016 provided by DiDi, the biggest taxi platform in China.It contributed to the movement pattern of human mobility.
@@ -496,7 +423,7 @@ Scenery & \\
 \end{tabular}
 \end{table}
 
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusions}
 Function regions identification is an important part of urban computing.
 But its evaluation depend on human intuition and urban planning, which is hard to display in terms of statistics.
 To make up for the lack of persuasive explanation, we proposed a post hoc framework to give persuasive explanation for functional regions identification in this paper.
