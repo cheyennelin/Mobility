@@ -234,7 +234,7 @@ Therefore, the number of visitors $\hat{f}_{r,a}$ can be predicted as follows:
 Clearly, people visit a place to perform various activities.
 Thus for a region $r$ at time $t$, the traffic flow is aggregated over all possible activities. This leads to the following equation:
 \begin{equation}
-\hat{f}_{r,l,t}=b_t+\sum_{a} \mathbf{c}_{l,a} \mathbf{U}_a^T V_r+ \sum_a \beta_{a,t} (f_{r,l,t-1})\label{equ:model}
+\hat{f}_{r,l,t}=b_t+\sum_{a} \mathbf{c}_{l,a} [\mathbf{U}_a^T V_r+  \beta_{a,t} (f_{r,l,t-1})] \label{equ:model}
 \end{equation}
 where in the left $\hat{f}_{r,l,t}$ is the observed traffic flow at time $t$ for region $r$ that has been labeled $l$ in the mobility data. In the right, the first term $b_t$ is a bias term, the second term considers how much traffic flow each activity brings to a region $r$ with label $l$, $\mathbf{c}_{l,a}$ measures coefficients between label $l$ and activity $a$. $\mathbf{c}_{l}>\mathbf{0}$. It is worthy to note here that $\mathbf{c}_l$ must be learnt across all regions associated with label $l$. In this manner, the semantics of label $l$ by the FRI can be interpreted through the activities (the name ``layered'' regression comes from the layered framework of activity and label).
 
