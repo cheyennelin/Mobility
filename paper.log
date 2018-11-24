@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  24 NOV 2018 20:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  24 NOV 2018 22:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -497,11 +497,7 @@ File: tikzlibraryfit.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.5)
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
-) (./paper.aux
-
-LaTeX Warning: Label `dataset' multiply defined.
-
-)
+) (./paper.aux)
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -580,7 +576,8 @@ LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
- (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count140
 \scratchdimen=\dimen175
@@ -693,64 +690,55 @@ Overfull \hbox (28.89606pt too wide) in paragraph at lines 208--221
  [] 
  []
 
-[6] [7]
-Overfull \hbox (8.40742pt too wide) in paragraph at lines 307--324
-[][] 
- []
+[6] [7] [8]
 
+LaTeX Warning: Reference `fig:DMR' on page 9 undefined on input line 308.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[8] <chengdu_1.png, id=48, 1205.50375pt x 877.2775pt>
-File: chengdu_1.png Graphic file (type png)
- <use chengdu_1.png>
-Package pdftex.def Info: chengdu_1.png used on input line 340.
-(pdftex.def)             Requested size: 108.405pt x 78.88463pt.
-
-<chengdu_2.png, id=50, 1206.5075pt x 878.28125pt>
-File: chengdu_2.png Graphic file (type png)
- <use chengdu_2.png>
-Package pdftex.def Info: chengdu_2.png used on input line 343.
-(pdftex.def)             Requested size: 108.405pt x 78.90788pt.
-
-<chengdu_3.png, id=51, 1206.5075pt x 876.27374pt>
-File: chengdu_3.png Graphic file (type png)
- <use chengdu_3.png>
-Package pdftex.def Info: chengdu_3.png used on input line 346.
-(pdftex.def)             Requested size: 108.405pt x 78.72752pt.
-
-<FunctionalRegions_thinning.png, id=52, 736.7525pt x 598.235pt>
+<FunctionalRegions_thinning.png, id=49, 736.7525pt x 598.235pt>
 File: FunctionalRegions_thinning.png Graphic file (type png)
 
 <use FunctionalRegions_thinning.png>
-Package pdftex.def Info: FunctionalRegions_thinning.png used on input line 358.
+Package pdftex.def Info: FunctionalRegions_thinning.png used on input line 315.
 
 (pdftex.def)             Requested size: 166.2212pt x 134.96219pt.
 
-<FunctionalRegions_DMR.png, id=53, 725.71124pt x 600.2425pt>
+<FunctionalRegions_DMR.png, id=51, 725.71124pt x 600.2425pt>
 File: FunctionalRegions_DMR.png Graphic file (type png)
 
 <use FunctionalRegions_DMR.png>
-Package pdftex.def Info: FunctionalRegions_DMR.png used on input line 361.
+Package pdftex.def Info: FunctionalRegions_DMR.png used on input line 318.
 (pdftex.def)             Requested size: 166.2212pt x 137.47585pt.
+ [9 <./FunctionalRegions_thinning.png> <./FunctionalRegions_DMR.png>]
+
+LaTeX Warning: Reference `tab:extraction' on page 10 undefined on input line 35
+4.
+
+
+LaTeX Warning: Reference `tab:explainability' on page 10 undefined on input lin
+e 376.
+
+
+LaTeX Warning: Reference `fig:DMR' on page 10 undefined on input line 382.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9 <./chengdu_1.png> <./chengdu_2.png> <./chengdu_3.png>] [10 <./FunctionalRegi
-ons_thinning.png> <./FunctionalRegions_DMR.png>] [11] [12] [13] (./paper.aux)
+[10] [11] [12] [13] (./paper.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 13060 strings out of 492995
- 253494 string characters out of 6132704
- 303139 words of memory out of 5000000
- 16352 multiletter control sequences out of 15000+600000
+ 13050 strings out of 492995
+ 253319 string characters out of 6132704
+ 303108 words of memory out of 5000000
+ 16345 multiletter control sequences out of 15000+600000
  11622 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,54p,1223b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,10n,54p,1223b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -769,10 +757,10 @@ ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on paper.pdf (13 pages, 336360 bytes).
+Output written on paper.pdf (13 pages, 296755 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
+ 127 PDF objects out of 1000 (max. 8388607)
  89 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

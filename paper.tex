@@ -276,80 +276,37 @@ inference equation here
 \label{equ:sgd}
 \end{eqnarray}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Experiments}\label{sec:experiments}
-\subsection{Data Set}
-The data set for our experiments including both mobility data and content data.
-The mobility data including the pick-up and drop-off timestamps and coordinates in November of the year 2016 provided by DiDi, the biggest taxi platform in China.It contributed to the movement pattern of human mobility.
-And the online content is crawled from a website with many comments similar to Yelp called DazhongDianping, which helps sentiment analysis of the regions.
-\begin{table}[h]
-\caption{Statistics of datasets}\label{dataset}
-\begin{tabular}{|l|l|c|}
-\hline
-Datasets &  attributes & Value\\
-\hline
-comments & shops with coordinates(POI) & 109686\\
- & shops with comments & 50853\\
- & total comments & 3213264\\
-\hline
-taxicabs & effective orders & 7065937\\
- & effective days & 30 \\
-\hline
-road networks & geographical scope & [103.93$^\circ$E,104.21$^\circ$E] and [30.56$^\circ$N,30.79$^\circ$N]\\
- & road segments & 3712\\
- & percentage of major roads & 54.9\%\\
- & segmented regions & 901\\
-\hline
-\end{tabular}
-\end{table}
+In this section we ask the following research questions. 
+(1) Does the proposed EFRI framework accurately extract urban features?  
+(2) Does EFRI capture the mobility patterns?
+(3) Does EFRI improve the interpretability of FRI results?
 
-\subsection{Preparation}
-To form the basic region of city,we segment the urban area of city into region units by the major road network and make a map simplification.
-The longitude of map range is [103.93,104.21] and latitude range is [30.56,30.79], which covers the main area of a city.
-Raster-based model is more computationally efficient and succinct for territorial analysis, which is suitable for our map scenario.
-We downloaded the major road network of this region\footnote{http://www.bigemap.com/} and rasterized the area into a 2000 $\times$ 2400 grid.
-In the grid, the road network is converted to a binary image, as 1 stands for the road while 0 stands for the blank areas.
+\subsection{Experimental Setup}
+The data sets for our experiments include a mobility data set and a textual data set.
+The mobility data (Didi dataset) is a set of  pick-up and drop-off coordinates of taxicabs with timestamps.
+Statistics: e.g. number of pickup-dropoffs , time period, in which city....
+The textual data set (Dianping dataset) is a set of ...
+It is crawled from China's largest online review sits\footnote{www.dianping.com.cn} in ....
+The data set contains xxx POIs, xxx comments
 
-The main road data is present in Fig.\ref{raw_map}, including motorway, trunk, primary, secondary, tertiary and their links.
-But the Fig.\ref{raw_map} is full of some unnecessary details, such as the lanes of a road and the overpasses, which disturb the distribution of regions.
-As explained in~\cite{Yuan2015FunctionRegion}, the dilation and thinning process illustrated in Figure~\ref{dilation and thinning} are operated on the original road data to remove some small regions and simplify the map.
-\begin{figure}[h]
-    \centering
-    \subfigure[Original segment of city]{
-    \label{raw_map} %% label for first subfigure
-    \includegraphics[width=1.5in]{chengdu_1.png}}
-    \subfigure[After dilation operator]{
-    \label{dilation} %% label for second subfigure
-    \includegraphics[width=1.5in]{chengdu_2.png}}
-    \subfigure[After thinning operator]{
-    \label{thinning} %% label for second subfigure
-    \includegraphics[width=1.5in]{chengdu_3.png}}
-    \caption{The preparation process of road network}
-    \label{dilation and thinning} %% label for entire figure
-\end{figure}
 
-We use DMR to identify regions into 8/4 types with different regions, which is illustrated in Figure~\ref{DMR_result}
-The main function regions in the city is residence region, business region, study and science region, scenery regions and so on.
+\subsection{Pre-processing}
+
+%preprocessing
+To obtain the input for EFRI, we implement four pre-processing steps: (1) region segmentation; (2) FRI on mobility data; (3) data set linking; (4) text cleaning. 
+
+\textbf{Region segmentation.} To form the basic city regions, we segment the urban area by the city's major road network.
+The longitude of the map range in Didi dataset is [103.93,104.21] and latitude range is [30.56,30.79], which covers the main area of a city.% do we have to provide the range? in other words, how do you get the range?  
+We downloaded the major road network of this region\footnote{http://www.bigemap.com/} and rasterized the area into a 2000 $\times$ 2400 grid by the Raster-based model~\cite{}.
+The road network is converted to a grey image, where in each grid 1 stands for the road and $0$ otherwise. %?????
+ The dilation and thinning process~\cite{} is operated to remove small regions such as lanes and road overpasses and simplify the map.
+ 
+\textbf{FRI on mobility data.} We use DMR~\cite{} to identify region functionals and label them with  8/4 types. % what do you mean by 8/4?
+Any parameters in DMR?
+Note that we can use any convenient FRI system to identify region functionals.
+The DMR results are illustrated in Figure~\ref{fig:DMR}
+
 
 \begin{figure}[h]
 \centering
@@ -360,20 +317,69 @@ The main function regions in the city is residence region, business region, stud
 \label{DMR_result} %% label for second subfigure
 \includegraphics[width=2.3in]{FunctionalRegions_DMR.png}}
 \caption{results of DMR}
-\label{The results of functional region identification}
+\label{fig:DMR}
 \end{figure}
 
-\subsection{Evaluation Metrics}
-We evaluate the functional region through two approaches. One is the percentage of regions that could find explanation label by our framework; while the other is the quality and accuracy of the explanation given by our framework.
+\textbf{Data set linking.} we ??how do you link the two datasets?
+remove any POIs?
 
-For the evaluation of percentage of explainable region, we put forward the $explanation percentage$ to measure the proportion that regions with explainable labels as:
+
+\textbf{Text Cleaning.} Chinese word segmentation? stopword removal?
+activity extraction?
+Statistics of the combined dataset are shown in Table~\ref{tab:dataset}.
+Averagely, a POI is associated with xxx comments....more statistics
+
+\begin{table}[h]
+\caption{Statistics of dataset}\label{tab:dataset}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\#POIs & \#Comments & \#Mobility pairs & \#Regions & \#Labels \\
+\end{tabular}
+\end{table}
+
+\subsection{Urban Feature Extraction}
+
+\textbf{Comparative Methods.} We compare EFRI with the following systems. (1) (2) (3) (4) (5)
+
+\textbf{Evaluation metrics.} (1) (2) (3) (4)equations here
+
+\begin{table}[h]
+\caption{Comparative performance of urban feature extraction}\label{tab:extraction}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Method & Metric 1 & Metric 2 & Metric 3 & Metric 4\\\hline
+\end{tabular}
+\end{table}
+
+As shown in Table~\ref{tab:extraction}, your analysis here.
+
+\subsection{Explainability Performance}
+
+\textbf{Comparative Methods.} We compare EFRI with the following systems. (1) (2) (3) 
+
+\textbf{Evaluation metrics.} Evaluation of explainable systems is still an open problem. In this work, we consider two categories of evaluation metrics. The first is objective to evaluate the quantity of explanations. (1) EP: percentage of regions that could find explanation label by our framework. The rest are subjective to evaluate the quality of explanations.  (2) (3) (4) All reported results are averaged over regions.
+
+equations here 
 $$explanation\ percentage=\frac{|regions\ with\ explanation\ label|}{|all\ regions|}$$
 
-For the second approach,we take a metric to measure the quality and accuracy of our explanation label.
+\textbf{Evaluation Process}  how many human judges? how to vote?
 
-\subsection{Baseline and other comparison}
 
-\subsection{result}
+\begin{table}[h]
+\caption{Comparative performance of explainability }\label{tab:explainablity}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Method & Metric 1 & Metric 2 & Metric 3 & Metric 4\\\hline
+\end{tabular}
+\end{table}
+
+As shown in Table~\ref{tab:explainability}, your analysis here.
+
+
+
+
+\subsection{Case Study}
+Finally we demonstrate a case study. As shown Figure~\ref{fig:DMR}, regions in the city can be roughly classified as residence region, business region, study and science region and scenery regions.
 \begin{table}[h]
 \centering
 \caption{Functional Regions and corresponding urban feature}\label{dataset}
@@ -391,6 +397,11 @@ Scenery & \\
 \hline
 \end{tabular}
 \end{table}
+
+
+
+
+
 
 \section{Conclusion}\label{sec:conclusions}
 Function regions identification is an important part of urban computing.
