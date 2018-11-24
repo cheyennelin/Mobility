@@ -47,39 +47,26 @@ Furthermore, to obtain accurate identification, recent research tends to use com
 The complex nature of these models is an obstacle for people to capture the ``semantics'' of the clustering results. 
 
 %motivation
-There is a strong incentive to develop  \emph{Explainable Functional Region Identification} (EFRI) system, which \emph{explains} the identification of functional regions. 
+With the massive amount of geo-tagged textual data online, such as reviews on Points of Interest (POIs), it is possible to develop  \emph{Explainable Functional Region Identification} (EFRI) system, which \emph{explains} the identification of functional regions. 
 EFRI is beneficial for both system designers and end users.
 For system designers, explanations help them better diagnose the system and improve system performance. 
 For end users, explanations not only facilitate interpretation of the clustering results, but also incubate a wide range of applications, including traffic flow predictions, personalized trajectory recommendation, urban planning and so on. 
 
 %goal
 Though there is a growing interest in studying explainable AI~\cite{Preece2018ExplainAI}, in geographical systems, explainable system is still in its initial stage~\cite{Korpan2017navigation,Jose2018cognitive}.
-In this paper, we present a novel EFRI system by integrating heterogeneous data sources. Our system provides post-hoc explanations, i.e. the explanations are not relevant to the FRI algorithm. Instead, for an arbitrary FRI algorithm, the system attempts to resolve the ``semantics" of the generated cluster labels by (1) associating the cluster labels to a set of human activities; (2) visualizing the desired urban features for each activity; and (3) listing the most important urban features in the region. 
+In this paper, we present a novel EFRI system by integrating heterogeneous data sources. Our system provides post-hoc explanations, i.e. the explanations are not relevant to the FRI algorithm. Instead, for an arbitrary FRI algorithm, the system attempts to resolve the ``semantics" of the generated cluster labels by (1) associating the cluster labels to a set of human activities; (2) visualizing the desired urban features for each activity; and (3) listing the most relevant urban features in the region. 
 
 %figure ??? real example or made-up example
-As shown in Fig.\ref{explanation-example}, the city has been partitioned into several functional regions. For a specific region $r_1$ with label $l$, the system delivers textual and visual descriptions. Firstly label $l$ is most likely to relate to a mixture of activities ``'' and ``'', because from the analysis of mobility data, these two activities bring in $\%$ of the traffic flow to region $r_1$. Secondly, under activity ``", two urban features ``'' and ``" are most popular, with highly positive sentiments collected from online reviews. Finally region $r_1$'s most representative urban features are exactly ``" and ``", thus the system explains why $r_1$ is labeled as $l$.  
+As shown in Fig.\ref{explanation-example}, the city has been partitioned into several functional regions. For a specific region $r$ with label $l$, the system delivers textual and visual descriptions. Firstly label $l$ is most likely to relate to a mixture of activities ``'' and ``'', because from mobility data, coefficients of activity ``'' and ``'' to the traffic flow of region $r$ are $0.6$ and $0.4$ respectively. Secondly, under activity ``", two urban features ``'' and ``" are most popular, with highly positive sentiments collected from online reviews. Finally region $r$'s most representative urban features are exactly ``" and ``", thus the system explains why $r$ is labeled as $l$.  
 
 %highlight
-We highlight a key property of the proposed EFRI system: \textbf{the power to integrate heterogenous data sources to offer semantic explanations for mobility patterns}. On one hand, explanations essentially involve semantics, which are not available in pure mobility data (i.e. taxicab pick-ups and drop-offs). In our system, the semantics of labels are expressed through urban activities and urban features, both of which are extracted from textual data (i.e. online review data). On the other hand, the identification of functional region is based on mobility patterns. To generate reasonable explanations, our system blends in the semantics extracted from textual data and moving patterns discovered in mobility data. 
+We highlight a key property of the proposed EFRI system: \textbf{the power to integrate heterogenous data sources to offer semantic explanations for mobility patterns}. On one hand, explanations essentially involve semantics, which are not available in pure mobility data (i.e. taxicab pick-ups and drop-offs). In our system, the semantics of labels are expressed through urban activities and urban features, both of which are extracted from textual data (i.e. online POI review data). On the other hand, the identification of functional region is based on mobility patterns. To generate reasonable explanations, our system blends the semantics extracted from textual data with moving patterns discovered in mobility data. 
 
 In building such a system, we face two challenges.
 
 \begin{figure}
 \centering
-\subfigure[An example of our identification result]{
-\label{real-map} %% label for first subfigure
-\includegraphics[width=1.5in]{example-net.png}}
-\subfigure[moving patterns]{
-\label{patterns} %% label for second subfigure
-\includegraphics[width=1.4in]{example-line.png}}
-\subfigure[POIs in different functional region]{
-\label{sentiment} %% label for second subfigure
-\includegraphics[width=1.4in]{example-sentiment.png}}
-\caption{The explanation provided for functional region identification.
-Region I in Fig.\ref{real-map} is labeled as residential region while II is commercial region.
-Fig.\ref{patterns} revealed differences of the mobility patterns between residential region and commercial region,workdays and weekends.
-Fig.\ref{POI} shows the distribution of POIs within the two regions,e.g. there is more shops in commercial region.
-And from fig.\ref{sentiment} we find that people have a more interest in a positive sentiment in traffic for commercial and pay more attention to noise for residential region.}
+\caption{An illustrative example of Explainable Functional Region Identification (EFRI)}
 \label{explanation-example} %% label for entire figure
 \end{figure}
 
@@ -100,7 +87,7 @@ Then we filter urban features which are most representative in geographical text
 The second challenge arises from the integration of textual and mobility data.
 To fully explain the functional of a region, our goal is to simultaneously discover semantic associations (i.e. how the given region is associated to each urban activity and urban feature) and mobility patterns (i.e. how the current traffic flow of a given region is affected by previous traffic flow).
 This is not a trivial task.
-The mobility patterns can be highly diverse for each region and time sensitive.
+The mobility patterns can be highly diverse for each activity and time sensitive.
 For example, people tend to gather in school region in the day, while in residence regions produces they gather at night.
 Restraining a global form shared by all mobility patterns is problematic.
 
@@ -149,84 +136,46 @@ However, most existing work of this line employ simple statistical analysis to u
 Such a coarse-grained analysis is distorted by latent variables, such as activity of the region.
 Our work is the first to incorporate activity to obtain a fine-grained analysis.
 
-\section{System Overview}
-The section make an overview introduction for our post hoc framework to explain the functional region identification.
-The whole structure is illustrated in Figure ~\ref{overview} while the corresponding steps as follow:
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.3]{overview.png}
-  \label{overview}
-  \caption{The overview structure of our framework}
-\end{figure}
+\section{Urban Opinion Extraction}\label{sec:extraction}
+%system overview
+As shown in Fig.~\ref{explanation-example}, to generate the explanations, the proposed EFRI system consists of two components: (1) \textbf{Urban Opinion Extraction} module works with textual data, such as online POI review data. To be specific, this module first extracts a set of textual phrases that represent urban activities and group the online review data based on activities, then it extracts a set of urban features in each review, finally it extracts the public sentiments on each urban feature under each activity. (2)\textbf{Layered Regression} module works with the results from \textbf{Urban Opinion Extraction} module and mobility data, such as taxicab pick-up and drop-offs data. This module will be discussed in later sections.
 
-\emph{1.Functional region identification:}
+\subsection{Urban Activity Extraction}
+%technical details for extracting textual phrases 
+To obtain a high-quality seed list of phrases , we start with a taxonomy of urban activities. Describe the taxonomy here, number of activities, why it is good to start with, etc.
 
-The input data of first step is taxicabs OD pairs and POIs with coordinates.
-We can get an activity-region matrix with value of the probability that each single region units belong to each activity by DMR.
-And for the region, an activity with highest probability can be output as the function of this region.
+%is it too many or too few? If it's too many, use the seed list as a supervision set. If it's too few, describe the filtering method below.
+However, the seed list is too ...
+Intuitively, a good activity phrase should...
+Therefore, ...
 
-\emph{2.Urban feature extraction:}
-
-This step based upon the comments of different shops and activity-region matrix output in last step.
-We select nouns with high frequency and low information entropy as our urban features.
-Meanwhile, the sentiment analyse between urban feature and different activity is also illustrated in an activity-feature matrix.
-
-\emph{3.Train Matrix Factorization model:}
-
-With the certain activity-region matrix $\bm{r}$ and activity-feature matrix $\bm{u}$, we performed an matrix factorization model in form of Equation \ref{model} to get the region-feature matrix $\bm{v}$.
-Training data comes from the given result of step 1 and step 2.
-
-\emph{4.Output label explanation:}
-
-The region-feature matrix $\bm{v}$ generated in step 3 in the input of this step
-For each single region units,we can pick the urban features with highest sentiment score in $\bm{v}$.
-These urban feature is the explanation for the functional region identification.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Urban Feature}\label{sec:extraction}
+%group textual data based on activity
+We obtain a set of activity phrases $\mathcal{A}=\{a\}$ after the above two steps.
+We group the textual data based on the recognized activity phrases. 
+Technical details here...specify what you do when there are several activities in a sentence/review. 
 
 \subsection{Urban Feature Extraction}
-To get proper urban features for explaining different functions, we thought that urban features should be nouns with high frequency and low information entropy.
+%features
+Previous studies on opinion mining for product recommendations~\cite{} have achieved remarkable success in extracting product aspects, i.e. with a precision as high as $\%$.
+Inspired by~\cite{}, we also use a rule-based approach to extract a candidate list for urban features.
+As we are building a candidate list, the primal objective is to obtain high coverage instead of high precision. 
+We modify the rules to (if necessary, add a table of rules here)...
+Technical details here...
 
-Considering the property of urban features, we separate comment sentences into single words and select all nouns of it.
-With the help of coordinates, these words can correspond to different single units.
-Take the sparseness of latent factor into account, we thought the words had better appear in more region units.
-And we filer the high-frequency nouns as features.
-If the frequency of a word is high enough, i.e. the shops commented with this word is much than a threshold $t$, we thought its frequency is high.
-We set the threshold $t$ as 500.
+%filter features
+\emph{Urban features} distinguish with product aspect in that ...
+Intuitively, a phrase indicating an urban feature must...
+As forth, we use statistics such as ...
 
-Meanwhile, to make the urban features more distinguishing, we calculate the information entropy of words for different functional regions generated in Section 4.1.
-Information entropy can measure the amount of information that a word contains.
-Stronger distinguishing ability of a word takes lower information entropy.
-The information entropy is defined as:
-$$H[x_i,word_j] = -\sum_i p(x_i,word_j)\log p(x_i,word_j)$$
-where $x_i$ stands for $i$th functional regions;
-$p(x_i,word_j)$ is the proportion of shops located in $i$th functional regions commented with $j$th word in all shops located in $i$th functional regions.
-We select features with lowest information entropy as our urban features, which are shown in Table \ref{urbanfeatures}.
+Equation here
+
+As shown in Table~\ref{tab:urbanfeatures}
 
 \begin{table}[h]
 \centering
 \caption{Selected Urban Features}
-\label{urbanfeatures}
+\label{tab:urbanfeatures}
 \begin{tabular}{c|c|c|c|c}
 \hline
 features &  Alley & Brand & Center & Square\\
@@ -237,75 +186,95 @@ information entropy &  &  &  & \\
 \end{table}
 
 
-\subsection{Urban Feature Matrix}
+\subsection{Urban Sentiment Extraction}
+%sentiment 
+We do not focus on word-level sentiment analysis in this paper.
+The state-of-the-art toolkit is used...
+technical details here
 
+%aggregate sentiments
+However, the problem of aggregating word-level sentiments to activity must be addressed.
+intuition here...
+technical details here...
+result is $U_a$, describe
 
-\section{Explanation Model}\label{sec:regression}
-In this section,we describe our post hoc framework for explanation in detail.
+\section{Layered Regression Model}\label{sec:regression}
+%preliminaries
+In this section, we describe in detail the layered regression model. Hereafter, unless stated otherwise, we use lower-case letters for indices, uppercase letters for sets, lower-case bold-face letters for vectors and upper-case bold-face letters for matrices. To be specific, an arbitrary FRI system divides a city into a set of regions, denoted as $r\in R$ and each region $r$ is labeled by $l\in L$. From textual data, the urban opinion extraction module obtains public sentiment $\mathbf{U}_a\in \mathcal{R}^{K}$ on each activity $a\in A$, where $\mathbf{U}_{a,k}$ is the public sentiment on urban feature $k$ under activity $a$. The mobility data consists of number of visitors $f_{r,t}$ for each region $r\in R$ at each time-point $t=1,\cdots,T$. $f_{r,t}$ can only be non-negative. More notations are shown in Table~\ref{tab:notation} 
 
-\subsection{Latent Factor Model}
-A classical model has Intuitive explanation is latent factor model.
-It has a wide application in various fields.
-The form of latent factor applied in recommendation system to predict rating of user $u$ to product $p$ as follow:
-\begin{equation}
-\hat{r}_{u,p}= g+b_u+b_p+\bm{x_u}^T\bm{y_p} \label{basic}
+\begin{table}[htp]
+\caption{Notations for layered regression model}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Notation & Description \\\hline
+${A}=\{a\}$ & a set of activities \\
+${R}=\{r\}$ & a set of regions \\
+${L}=\{l\}$ & a set of labels \\
+$F=\{f_{r,l,t}|f_{r,l,t}\geq 0\}$ & A set of observed number of visitors for region $r$ with label $l$ at time $t$ \\
+$\mathbf{U}_a\in \mathcal{R}^K$ & Extracted public sentiments on each urban feature under activity $a$ \\
+$\mathbf{V}_r\in \mathcal{R}^K$ & Parameter representing the relevance of each urban feature to region $r$\\
+$\mathbf{c}_{l}\in \mathcal{R}^{|A|}$ & Coefficient of label $l$ to each activity\\
+$b_t$ &  Traffic flow bias at time $t$\\ 
+\hline
+\end{tabular}
+\end{center}
+\label{tab:notation}
+\end{table}%
+
+\subsection{Traffic Flow Prediction}
+Our model builds on a simple intuition, that the more people will visit a region $r$ to perform an activity $a$, if the region $r$ is more relevant to the desired urban features under the activity $a$.  
+The desired urban features under activity $a$ is encoded in $\mathbf{U}_a$ which is extracted from online review data.
+The relevance of region $r$ to each urban feature is encoded in $\mathbf{V}_r$ which needs to be learnt. 
+Therefore, the number of visitors $\hat{f}_{r,a}$ can be predicted as follows:
+\begin{equation}\label{equ:fra}
+\hat{f}_{r,a}= \mathbf{U}_a^T \mathbf{V}_r
 \end{equation}
-where $g$ is a base rating in the system while $b_u$ and $b_p$ is the bias of user $u$ and product $p$;
-$\bm{x_u}$ and $\bm{y_p}$ denote vectors of latent factors for corresponding user and product.
 
-The matrix $r$ is rating that user $u$ give to product $p$.
-Correlate users as activities, products as locations, we translated the matrix into the sentiment analysis score that actitivy $a$ to region $l$.
-We can make our matrix based upon this stand latent factor model presented in Equation \ref{basic}.
-
-\subsection{Our model}
-Considering the temporal attribute of datesets, ~\cite{Zhang2017Model} has proposed an Historical Influence Aware Latent Factor(HIALF) model take the historical influence into account, which fit our intuition well and make the power of explanation stronger.
-
-Therefore, we define our matrix factorization model as:
+Clearly, people visit a place to perform various activities.
+Thus for a region $r$ at time $t$, the traffic flow is aggregated over all possible activities. This leads to the following equation:
 \begin{equation}
-\hat{r}_{l,i,a}=b_l+U_a^TV_l+\beta(e_{a,i})\label{model}
+\hat{f}_{r,l,t}=b_t+\sum_{a} \mathbf{c}_{l,a} \mathbf{U}_a^T V_r+ \sum_a \beta_{a,t} (f_{r,l,t-1})\label{equ:model}
 \end{equation}
-where $\hat{r}_{l,i,a}$ stands for the predicted probability at $i$-th time bin that region $l$ belongs to activity $a$;
-$b_l$ is the bias of region $l$;
-$\bm{U_a}$ and $\bm{V_l}$ represent the latent feature of activity $a$ and region $l$;
-$e_{a,i}$ generated by prior expectation;
-and $\beta(\cdot)$ demonstrates the bias curve changing with $e_{a,i}$.
-Now we describe how to learn the $\beta(x)$ and generate a more realistic prior expectaion $e_{a,i}$.
+where in the left $\hat{f}_{r,l,t}$ is the observed traffic flow at time $t$ for region $r$ that has been labeled $l$ in the mobility data. In the right, the first term $b_t$ is a bias term, the second term considers how much traffic flow each activity brings to a region $r$ with label $l$, $\mathbf{c}_{l,a}$ measures coefficients between label $l$ and activity $a$. $\mathbf{c}_{l}>\mathbf{0}$. It is worthy to note here that $\mathbf{c}_l$ must be learnt across all regions associated with label $l$. In this manner, the semantics of label $l$ by the FRI can be interpreted through the activities (the name ``layered'' regression comes from the layered framework of activity and label).
 
-\textbf{Modeling the bias curve $\beta(x)$}
-The form of $\beta(x)$ is unknown.
-We can constrain it with a data-driven approach.
-Kernel regression is a kind of typical non-parameter learning and fit the $\beta(x)$ model well.
+We usually observe mobility patterns for traffic flows.
+These patterns can be highly diverse across activities. 
+For example, school regions (high traffic flow in the day) and business regions (high traffic flow at night) have different mobility patterns.
+Also it is reasonable to assume temporal dependency in traffic flows.
+Again the temporal dependencies vary among activities.
+For example, current number of visitors in business regions might be strongly influenced by previous numbers of visitors, while in school regions the influence is not significant.  
 
-If we have a set of independent variables $e_l$ and dependent variables $v_l$, and $v_l=\beta(e_l)+\epsilon_l$ where $\epsilon_l$ is the noise from the standard normal distribution, we can defind $\beta(x)$ as:
-$$\beta(x) = \frac{\sum_{k=1}^{n}w(x,e_l)v_l}{\sum_{k=1}^{n}w(x,e_l)}$$
-where $w(x, x_i) = \exp(-\kappa(x-x_i)^2)$ and $\kappa$ is given by 10.
-Actually, $e_l$ is given while $v_l$ is unknown.
-Therefore, we set $e_l$ as several arithmetic progression within data range and $v_l$ is the corresponding unknown parameters so that we can learn them from datasets.
+Such diverse and dynamic mobility patterns are modeled by the bias curve $\beta_{a,t}(f_{r,l,t-1})$.
+The subscript $a$ suggests that the bias curve is activity specific.
+The subscript $t$ suggests that the bias curve is time sensitive, i.e. with different forms at night and in the day. To reduce the number of model parameters, we can group $t$ to a limited set of time segments. For example, if we consider only ``weekends'', ``weekday day''  and ``weekday night" then there are in total $3\times |A|$ bias curves. 
 
-\textbf{Modeling the prior expectation $e_{a,i}$}
-$$e_{a,i} = \frac{\sum_{k=1}^{i-1}\xi(i-k) r_{a,k}}{\sum_{k=1}^{i-1}\xi(i-k)}$$
-where $\xi(d)=\exp(-\gamma\times d)$ is an exponential triggering kernel that models the decrease of histroy influence;
-$\gamma$ controls the degree that history probability influence current probability;
-and $r_{a,k}$ denotes the sentiment of activity $a$ when time bin $k$.
+To capture the diverse nature of bias curve, the form of $\beta(x)$ is unknown.
+We apply a data-driven approach: kernel regression, which is a typical non-parameter learning method to fit $\beta(x)$.
 
+\begin{equation}\label{eqn:kernel}
+\beta_{a,t} (x) = \frac{\sum_{i=1}^n k_h(x-x_i) y_i}{ \sum_{j=1}^n k_h(x-x_j)}
+\end{equation}
+
+To obtain the set of samples $\{(x_i,y_i)\},i=1,\cdots,n$, we let $x_i$ to be uniformly sampled from the range of $f_{r,l,t-1}$. $k_h(x-x_i)= \exp(-h (x-x_i)^2)$, where $h$ is a hyper-parameter to control the smoothness of the function. The set of $y_i$ are to be learnt from data.
 
 \subsection{Model Inference}
-After build a matrix factorization model, we set up objective function as follow:
-\begin{equation}
-F=\sum\limits_{(p,l,u)\in\mathcal{M}}(r_{l,i,a}-\hat{r}_{l,i,a})^2+\lambda_1(b_l^2+||{\bm{y_r}}||_2^2)+\lambda_2(\sum\limits_{l}v_l^2)+\lambda_3(\sum\limits_{\alpha}\alpha_u^2)
-\label{inference}
-\end{equation}
-where $\Theta$ stands for the unknown parameters, $\bm{y_p}$, $b_u$, $\alpha$ and $v_l$.
-$\mathcal{M}$ contains all $(p,l,u)$ pairs, and each pair of it stands for the related parameter of region $l$ belongs to activity $a$ at time bin $i$.
-$r_{r,i,a}$ is the probability generated by DMR while $\hat{r}_{r,i,a}$ is the predicted probability by Equation \ref{model}.
-The first item of Equation \ref{inference} is quadratic sums of the difference between real probability $r_{r,i,a}$ and predected probability $\hat{r}_{r,i,a}$.
-To prevent from overfitting, we three regularization terms and $\lambda_1$, $\lambda_2$ and $\lambda_3$ are given as hyperparameters.
+Finally, we set up the objective function for layered regression model.
+\begin{eqnarray}
+\min \mathcal{L} & =\sum_{f_{r,l,t}\in F}(f_{r,l,t}-\hat{r}_{r,l,t})^2+\lambda_1 (\sum_t b_t^2  + \sum_r \|\mathbf{V}_r\|^2 )\\\nonumber
+& +\lambda_2(\sum_l \|\mathbf{c}_l\|_1)+\lambda_3(\sum_i y_i^2)\\\nonumber
+& w.r.t. \forall l, \mathbf{c}_l\geq \mathbf{0}
+\label{equ:loss}
+\end{eqnarray}
 
+The first term in Equ.~\ref{equ:loss} minimizes the differences between observed traffic flow and predicted traffic flow by Equ.~\ref{equ:model}. The second term avoids over-fitting by adding a L2 penalty term on model parameters $b_t, \mathbf{V}_r$. The third term further regularizes the squared loss by adopting a L1 term on $\mathbf{c}_l$. The sparseness constraint on $\mathbf{c}_l$ helps to represent a label by the most representative activity. 
 
-To get our optimal $\bm{y_r}$, we aim to solve the following optimization problem and make the predicted probability $\hat{r}_{r,i,a}$ as close as possible to the real probability$r_{r,i,a}$:
-$$\min\limits_{\Theta} F$$
-The approach to get it is stochastic gradient descent(SGD) algorithm due to its efficiency in learning the parameter of objective function
+The parameters are inferred by stochastic gradient. 
 
+\begin{eqnarray}
+inference equation here
+\label{equ:sgd}
+\end{eqnarray}
 
 
 
@@ -493,8 +462,6 @@ Second, we want to change our phrase-level explanation into sentence-level, whic
 \bibitem{Gallegos16happier}Gallegos L, Huang A, Huang A, et al. Geography of Emotion: Where in a City are People Happier?[C]// International Conference Companion on World Wide Web. International World Wide Web Conferences Steering Committee, 2016:569-574.
 
 \bibitem{Zhao2016POI}Zhao S, King I, Lyu M R. A Survey of Point-of-interest Recommendation in Location-based Social Networks[J]. 2016.
-
-\bibitem{Zhang2018SIGIR}Yongfeng Zhang, Yi Zhang, and Min Zhang. SIGIR 2018 Workshop on ExplainAble Recommendation and Search (EARS 2018). In Proceedings of The 41st International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR 18). 2018.
 
 \bibitem{Zhang2018Survey} Zhang Y, Chen X. Explainable Recommendation: A Survey and New Perspectives[J]. arXiv preprint arXiv:1804.11192. 2018.
   
