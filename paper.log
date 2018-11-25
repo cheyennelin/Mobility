@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  24 NOV 2018 22:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  25 NOV 2018 13:21
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -644,13 +644,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 13.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 23.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
  [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
@@ -658,47 +658,43 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
 
-LaTeX Warning: Citation `' on page 4 undefined on input line 117.
+LaTeX Warning: Citation `' on page 4 undefined on input line 112.
 
 
 LaTeX Warning: Citation `Farmer2009Overvie' on page 4 undefined on input line 1
-17.
+12.
 
 
 LaTeX Warning: Citation ` Korpan2017navigation' on page 4 undefined on input li
-ne 117.
+ne 112.
 
 
-Overfull \hbox (0.8771pt too wide) in paragraph at lines 124--127
+Overfull \hbox (0.8771pt too wide) in paragraph at lines 119--122
 []\OT1/cmr/m/n/10 Existing ur-ban com-put-ing sys-tems ex-ten-sively rely on co
 m-plex ma-chine learn-
  []
 
 [4]
-Overfull \hbox (0.29381pt too wide) in paragraph at lines 160--165
+Overfull \hbox (0.29381pt too wide) in paragraph at lines 155--160
 \OT1/cmr/m/n/10 Previous stud-ies on opin-ion min-ing for prod-uct rec-om-men-d
 a-tions [] have achieved
  []
 
 [5]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 179.
+(Font)              <9> on input line 174.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 179.
+(Font)              <6> on input line 174.
 
-Overfull \hbox (28.89606pt too wide) in paragraph at lines 208--221
+Overfull \hbox (28.89606pt too wide) in paragraph at lines 203--216
  [] 
  []
 
-[6] [7] [8]
-
-LaTeX Warning: Reference `fig:DMR' on page 9 undefined on input line 308.
-
-<FunctionalRegions_thinning.png, id=49, 736.7525pt x 598.235pt>
+[6] [7] [8] <FunctionalRegions_thinning.png, id=49, 736.7525pt x 598.235pt>
 File: FunctionalRegions_thinning.png Graphic file (type png)
 
 <use FunctionalRegions_thinning.png>
-Package pdftex.def Info: FunctionalRegions_thinning.png used on input line 315.
+Package pdftex.def Info: FunctionalRegions_thinning.png used on input line 310.
 
 (pdftex.def)             Requested size: 166.2212pt x 134.96219pt.
 
@@ -706,19 +702,12 @@ Package pdftex.def Info: FunctionalRegions_thinning.png used on input line 315.
 File: FunctionalRegions_DMR.png Graphic file (type png)
 
 <use FunctionalRegions_DMR.png>
-Package pdftex.def Info: FunctionalRegions_DMR.png used on input line 318.
+Package pdftex.def Info: FunctionalRegions_DMR.png used on input line 313.
 (pdftex.def)             Requested size: 166.2212pt x 137.47585pt.
  [9 <./FunctionalRegions_thinning.png> <./FunctionalRegions_DMR.png>]
 
-LaTeX Warning: Reference `tab:extraction' on page 10 undefined on input line 35
-4.
-
-
 LaTeX Warning: Reference `tab:explainability' on page 10 undefined on input lin
-e 376.
-
-
-LaTeX Warning: Reference `fig:DMR' on page 10 undefined on input line 382.
+e 371.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -727,18 +716,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 13050 strings out of 492995
- 253319 string characters out of 6132704
- 303108 words of memory out of 5000000
- 16345 multiletter control sequences out of 15000+600000
+ 13042 strings out of 492995
+ 253177 string characters out of 6132704
+ 303050 words of memory out of 5000000
+ 16337 multiletter control sequences out of 15000+600000
  11622 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,54p,1223b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,10n,54p,1223b,302s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -757,7 +743,7 @@ ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on paper.pdf (13 pages, 296755 bytes).
+Output written on paper.pdf (13 pages, 296400 bytes).
 PDF statistics:
  127 PDF objects out of 1000 (max. 8388607)
  89 compressed objects within 1 object stream
